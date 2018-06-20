@@ -849,7 +849,7 @@ class Parser(object):
         # TODO: unnecesssary warnings
         # import warnings
         # warnings.filterwarnings(action='ignore', category=RuntimeWarning, module='py_exp')
-        res_arr = numeric.quantilize_without_nan(df.values, n_quantiles=n_quantiles, axis=axis)
+        res_arr = numeric.quantilize_without_nan(df.values.astype(float), n_quantiles=n_quantiles, axis=axis)
         res = pd.DataFrame(index=df.index, columns=df.columns, data=res_arr)
         return res
 
