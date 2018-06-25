@@ -178,7 +178,7 @@ class TradeApi(object):
             rpc_params = {"username": self._username,
                           "password": self._password}
 
-            cr = self._remote.call("auth.login", rpc_params)
+            cr = self._remote.call("jaqs.auth.login", rpc_params)
             f = self._get_format(format, "")
             if f != "obj" and f != "":
                 f = ""
@@ -189,7 +189,7 @@ class TradeApi(object):
     def logout(self):
         rpc_params = {}
         
-        cr = self._remote.call("auth.logout", rpc_params)
+        cr = self._remote.call("jaqs.auth.logout", rpc_params)
         return utils.extract_result(cr)
 
     def close(self):
@@ -274,7 +274,7 @@ class TradeApi(object):
                        "user"        : self._username,
                        "userdata"    : userdata}
 
-        cr = self._remote.call("oms.place_order", rpc_params)
+        cr = self._remote.call("jaqs.order.exec", rpc_params)
         return utils.extract_result(cr)
 
     def batch_order(self, orders, algo="", algo_param={}, userdata=""):
@@ -353,7 +353,7 @@ class TradeApi(object):
 
         rpc_params = {"task_id": task_id}
 
-        cr = self._remote.call("oms.cancel_order", rpc_params)
+        cr = self._remote.call("jaqs.order.cancel", rpc_params)
         return utils.extract_result(cr)
 
     def query_account(self, format=""):
@@ -369,7 +369,7 @@ class TradeApi(object):
         if data_format == "pandas":
             rpc_params["format"] = "columnset"
 
-        cr = self._remote.call("oms.query_account", rpc_params)
+        cr = self._remote.call("jaqs.account.query", rpc_params)
 
         return utils.extract_result(cr, data_format=data_format, class_name="Account")
 
@@ -389,7 +389,7 @@ class TradeApi(object):
         if data_format == "pandas":
             rpc_params["format"] = "columnset"
 
-        cr = self._remote.call("oms.query_position", rpc_params)
+        cr = self._remote.call("jaqs.position.query", rpc_params)
 
         return utils.extract_result(cr, data_format=data_format, class_name="Position")
 
@@ -462,7 +462,7 @@ class TradeApi(object):
         if data_format == "pandas":
             rpc_params["format"] = "columnset"
 
-        cr = self._remote.call("oms.query_order", rpc_params)
+        cr = self._remote.call("jaqs.order.status", rpc_params)
 
         return utils.extract_result(cr, data_format=data_format, class_name="Order")
 
