@@ -446,7 +446,7 @@ class Parser(object):
     @staticmethod
     def _to_array(x):
         if isinstance(x, (pd.DataFrame, pd.Series)):
-            return x.values
+            return x.values.astype(float)
         elif isinstance(x, np.ndarray):
             return x
         elif isinstance(x, (int, float, bool, np.integer, np.float, np.bool)):

@@ -1328,7 +1328,7 @@ class DataView(object):
                 # must use extended date. Default is start_date
                 df_var = self.get_ts(var, start_date=self.extended_start_date_d, end_date=self.end_date)
 
-            var_df_dic[var] = df_var
+            var_df_dic[var] = df_var.astype(float)
 
         # TODO:
         for factor in factors:
