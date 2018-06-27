@@ -335,11 +335,11 @@ class RemoteDataService(with_metaclass(Singleton, DataService)):
             self.data_api = data_api
             print(INDENT + "login success \n")
         
-        trade_dates_df, err_msg1 = self.query("jz.secTradeCal", fields="trade_date", filter="", orderby="")
-        if not trade_dates_df.empty:
-            self._trade_dates_df = trade_dates_df
-        else:
-            print("No trade date.\n".format(err_msg1))
+        # trade_dates_df, err_msg1 = self.query("jz.secTradeCal", fields="trade_date", filter="", orderby="")
+        # if not trade_dates_df.empty:
+        #     self._trade_dates_df = trade_dates_df
+        # else:
+        #     print("No trade date.\n".format(err_msg1))
 
         return err_msg
         

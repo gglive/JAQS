@@ -154,16 +154,16 @@ class PortfolioManager(object):
         return self.tasks.get(task_id, None)
 
     def init_positions(self):
-        df_acc, msg = self.ctx.trade_api.query_account()
-        if not msg.split(',')[0] == '0':
-            print(msg)
-            raise RuntimeError("Query account failed")
-        account_info = df_acc.set_index('type').to_dict(orient='index')
-        
-        df_univ, msg = self.ctx.trade_api.query_universe()
-        df_univ = df_univ.rename(columns={'security': 'symbol'})
-        univ = df_univ['symbol'].values.copy()
-        # self.ctx.init_universe(univ)
+        #df_acc, msg = self.ctx.trade_api.query_account()
+        #if not msg.split(',')[0] == '0':
+        #    print(msg)
+        #    raise RuntimeError("Query account failed")
+        #account_info = df_acc.set_index('type').to_dict(orient='index')
+        #
+        #df_univ, msg = self.ctx.trade_api.query_universe()
+        #df_univ = df_univ.rename(columns={'security': 'symbol'})
+        #univ = df_univ['symbol'].values.copy()
+        ## self.ctx.init_universe(univ)
         
         df_pos, msg = self.ctx.trade_api.query_position()
         df_pos = df_pos.rename(columns={'security': 'symbol'})

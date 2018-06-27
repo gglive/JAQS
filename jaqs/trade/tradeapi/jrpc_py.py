@@ -61,7 +61,7 @@ def _pack_json(obj):
 
 
 class JRpcClient(object):
-    def __init__(self, data_format="msgpack_snappy"):
+    def __init__(self, data_format="msgpack"):
         self._waiter_lock = threading.Lock()
         self._waiter_map = {}
 

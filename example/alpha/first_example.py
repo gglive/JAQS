@@ -19,14 +19,17 @@ import jaqs.trade.analyze as ana
 
 data_config = {
     "remote.data.address": "tcp://data.tushare.org:8910",
-    "remote.data.username": "YourTelephoneNumber",
-    "remote.data.password": "YourToken"
+    "remote.data.username": "18618373192",
+    "remote.data.password": "benx1986.qt"
 }
 trade_config = {
     "remote.trade.address": "tcp://gw.quantos.org:8901",
-    "remote.trade.username": "YourTelephoneNumber",
-    "remote.trade.password": "YourToken"
+    #"remote.trade.address": "tcp://1.85.40.235:58086",
+    "remote.trade.address": "tcp://127.0.0.1:58086",
+    "remote.trade.username": "auto_hedge",
+    "remote.trade.password": "10086"
 }
+
 
 # Data files are stored in this folder:
 dataview_store_folder = '../../output/simplest/dataview'
@@ -138,7 +141,7 @@ def analyze_backtest_results():
 
 
 if __name__ == "__main__":
-    is_backtest = True
+    is_backtest = False
     
     if is_backtest:
         save_data()
