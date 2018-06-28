@@ -320,7 +320,8 @@ class Parser(object):
             'GroupPercentile': self.group_percentile,
             'Quantile': self.to_quantile,
             'GroupQuantile': self.group_quantile,
-            'Rank': self.rank,
+            'Rank': self.rank2,
+            'Rankp': self.rank, #rank panel
             'GroupRank': self.group_rank,
             'Mask': self.mask,
             'ConditionRank': self.cond_rank,
@@ -764,13 +765,22 @@ class Parser(object):
             df[~mask] = np.nan
         return df
 
-    def rank(self, df, mask=None):
+    def rank2(self, df, mask=None):
         """Return a DataFrame with values ranging from 0.0 to 1.0"""
         df = self._align_univariate(df)
         df = self._mask_non_index_member(df)
         df = self._mask_df(df, mask)
         
         rank = rank_with_mask(df, axis=1, normalize=False)
+        return rank
+    
+    def rank(self, df, mask=None):
+        """Return a DataFrame with values ranging from 0.0 to 1.0"""
+        df = self._align_univariate(df)
+        df = self._mask_non_index_member(df)
+        df = self._mask_df(df, mask)
+        
+        rank = rank_with_mask(df, axis=0, normalize=False)
         return rank
 
     def percentile(self, df, mask=None):
