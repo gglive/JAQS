@@ -128,9 +128,8 @@ class TradeApi(object):
         if not self._connected:
             return (False, "no connection")
 
-        if self._strategy_selected:
+        if True: # self._strategy_selected:
             return (True, "")
-
         r, msg = self._do_login()
         if not r: return (r, msg)
         if self._strategy_id:
