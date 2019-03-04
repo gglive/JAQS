@@ -624,7 +624,7 @@ class RealTimeTradeApi(TradeApi):
                     algo=algo, algo_param=algo_param, data=order,
                     function_name='place_order')
         
-        self.ctx.pm.add_task(task)
+        #self.ctx.pm.add_task(task)
     
         return task_id, msg
     

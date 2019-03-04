@@ -1,0 +1,12 @@
+Collecting pandas
+  Using cached https://files.pythonhosted.org/packages/0e/67/def5bfaf4d3324fdb89048889ec523c0903c5efab1a64c8dbe0ac8eec13c/pandas-0.23.4-cp36-cp36m-win_amd64.whl
+Collecting pytz>=2011k (from pandas)
+  Using cached https://files.pythonhosted.org/packages/61/28/1d3920e4d1d50b19bc5d24398a7cd85cc7b9a75a490570d5a30c57622d34/pytz-2018.9-py2.py3-none-any.whl
+Collecting numpy>=1.9.0 (from pandas)
+  Downloading https://files.pythonhosted.org/packages/31/7e/8905636f7e4f9b9d7078aa0e701500634f832f145855a11beb098d3b0fb1/numpy-1.16.0-cp36-cp36m-win_amd64.whl (11.9MB)
+Collecting python-dateutil>=2.5.0 (from pandas)
+  Using cached https://files.pythonhosted.org/packages/74/68/d87d9b36af36f44254a8d512cbfc48369103a3b9e474be9bdfe536abfc45/python_dateutil-2.7.5-py2.py3-none-any.whl
+Collecting six>=1.5 (from python-dateutil>=2.5.0->pandas)
+  Downloading https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+Installing collected packages: pytz, numpy, six, python-dateutil, pandas
+Successfully installed numpy-1.16.0 pandas-0.23.4 python-dateutil-2.7.5 pytz-2018.9 six-1.12.0

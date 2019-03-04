@@ -166,7 +166,7 @@ class TradeApi(object):
     def login(self, username, password, format=""):
         self._username = username
         self._password = password
-        return self._do_login(format=format)
+        return  self._do_login(format=format)
 
     def _do_login(self, format=""):
         # Shouldn't check connected flag here. ZMQ is a mesageq queue!

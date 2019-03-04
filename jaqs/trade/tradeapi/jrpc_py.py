@@ -297,7 +297,7 @@ class JRpcClient(object):
             del q
         self._waiter_lock.release()
 
-    def call(self, method, params, timeout=6):
+    def call(self, method, params, timeout=10):
         # print "call", method, params, timeout
         callid = self.next_callid()
         if timeout:
