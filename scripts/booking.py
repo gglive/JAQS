@@ -24,7 +24,7 @@ today = datetime.datetime.today().strftime("%Y-%m-%d")
 
 
 with connection.cursor() as cursor:
-    sql = "SELECT `security_id`, `held_qty` FROM `_legacy_position_2` WHERE `trade_day`=%s AND `tag`='alpha01' AND `paper_flag`='T' AND `held_qty`>0"
+    sql = "SELECT `symbol`, `heldqty` FROM `positions` WHERE `date`=%s AND `tag`='alpha01' AND `heldqty`>0"
     cursor.execute(sql, (today,))
     result = cursor.fetchall ()
 
@@ -32,14 +32,14 @@ with connection.cursor() as cursor:
         w = csv.writer( file, delimiter=",")
         for record in result:
             print (record, "alpha01")
-            security_id, _ = record['security_id'].split(".")
+            security_id, _ = record['symbol'].split(".")
             w.writerow ([ 
                 int(security_id),
-                int( record['held_qty'])
+                int( record['heldqty'])
             ])
 
 with connection.cursor() as cursor:
-    sql = "SELECT `security_id`, `held_qty` FROM `_legacy_position_2` WHERE `trade_day`=%s AND `tag`='alpha06' AND `paper_flag`='T' AND `held_qty`>0"
+    sql = "SELECT `symbol`, `heldqty` FROM `positions` WHERE `date`=%s AND `tag`='alpha06' AND `div`=\'\' AND `heldqty`>0"
     cursor.execute(sql, (today,))
     result = cursor.fetchall ()
 
@@ -47,10 +47,10 @@ with connection.cursor() as cursor:
         w = csv.writer( file, delimiter=",")
         for record in result:
             print (record, "alpha06")
-            security_id, _ = record['security_id'].split(".")
+            security_id, _ = record['symbol'].split(".")
             w.writerow ([ 
                 int(security_id),
-                int( record['held_qty'])
+                int( record['heldqty'])
             ])
 
 
